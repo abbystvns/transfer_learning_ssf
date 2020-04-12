@@ -1,5 +1,5 @@
 ---
-title: "Home"
+title: "Transfer Learning for Subseasonal Forecasting"
 site: workflowr::wflow_site
 output:
   workflowr::wflow_html:
@@ -8,4 +8,57 @@ editor_options:
   chunk_output_type: console
 ---
 
-Welcome to my research website.
+Research question: when and how does leveraging dynamical model simulations improve climate forecasting on observational data? 
+
+## Previous work
++ Last year, statistics PhD student Andrew Goldstein analyzed the conditions under which including the simulation data yields lower mean-square predictive
+error than only using observation data in the following setting:
+
+    Observation data $Z_t = \begin{bmatrix}Y_t\\X_t\end{bmatrix} \overset{\text{iid}}{\sim} P_{\theta^*}, t = 1, \dots, n_o$ 
+
+    Simulation data $\tilde{Z}_t = \begin{bmatrix}\tilde{Y}_t\\\tilde{X}_t\end{bmatrix} \overset{\text{iid}}{\sim} P_{\tilde{\theta}}, t=1,\dots,n_s$ 
+
+His analysis of this scenario can be found [here](Combining_Datasets.pdf).
+
+## Gaussian setting
+
+We consider a simplified Gaussian linear model for further analysis. Suppose we have observations 
+
+$$y_{obs} = X_{obs}\beta + \epsilon_o, \quad \quad \epsilon_o \sim N(0, \sigma^2I_{n_o})$$
+
+and simulations
+
+$$y_{sim} = X_{sim}(\beta + \Delta) + \epsilon_{s}, \quad \quad \epsilon_{s} \sim N(0, \sigma^2I_{n_s}), \quad \Delta \sim N(0, \Sigma_{\Delta})$$
+
+We can equivalently write the simulation linear system as 
+
+$$y_{sim} = X_{sim}\beta + \eta \quad \quad \eta \sim N(0, \tilde{\Sigma}) \quad \quad \tilde{\Sigma} = X_{sim} \Sigma_{\Delta} X_{sim}^T + \sigma^2I_{n_s}$$
+
+We consider the following 3 models for estimating $\beta$:
+
+
+1. Observations only: $$y_{obs} = X_{obs}\beta + \epsilon_1, \quad \quad \epsilon_1 \sim N(0, \sigma^2 I_{n_o})$$
+
+2. Treat observations and simulations as iid:
+$$\begin{bmatrix}
+y_{obs} \\
+y_{sim}
+\end{bmatrix} = \begin{bmatrix}
+X_{obs}\\
+X_{sim}
+\end{bmatrix} \beta + \epsilon_2, \quad \quad \epsilon_2 
+\sim N\left(0, \begin{bmatrix}
+\sigma^2I_{n_o} & 0\\
+0 & \tilde{\Sigma}\end{bmatrix}\right)$$
+
+3. MAP estimator: $$\begin{bmatrix}
+\frac{1}{\sigma}y_{obs} \\
+\tilde{\Sigma}^{-1/2}y_{sim}
+\end{bmatrix} = \begin{bmatrix}
+\frac{1}{\sigma}X_{obs}\\
+\tilde{\Sigma}^{-1/2}X_{sim}
+\end{bmatrix} \beta + \epsilon_3, \quad \quad \epsilon_3 \sim N(0, I_{n_o+n_s})$$
+
++ Slides analyzing the risk of the Ridge estimators for each of these models are found [here](ridge_risk.pdf)
+
++ Slides comparing this setting to the AltMin paper found [here](altmin_compare.pdf)
