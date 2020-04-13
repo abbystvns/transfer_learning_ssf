@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>pandemic3</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>covariance_explorations</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -8451,15 +8451,15 @@ label {
 }
 /* Flexible box model classes */
 /* Taken from Alex Russell http://infrequently.org/2009/08/css-3-progress/ */
-/* This file is a compatability layer.  It allows the usage of flexible box 
+/* This file is a compatability layer.  It allows the usage of flexible box
 model layouts accross multiple browsers, including older browsers.  The newest,
 universal implementation of the flexible box model is used when available (see
-`Modern browsers` comments below).  Browsers that are known to implement this 
+`Modern browsers` comments below).  Browsers that are known to implement this
 new spec completely include:
 
     Firefox 28.0+
     Chrome 29.0+
-    Internet Explorer 11+ 
+    Internet Explorer 11+
     Opera 17.0+
 
 Browsers not listed, including Safari, are supported via the styling under the
@@ -11233,7 +11233,7 @@ div#pager .ui-resizable-handle {
   background: #f7f7f7;
   border-top: 1px solid #cfcfcf;
   border-bottom: 1px solid #cfcfcf;
-  /* This injects handle bars (a short, wide = symbol) for 
+  /* This injects handle bars (a short, wide = symbol) for
         the resize handle. */
 }
 div#pager .ui-resizable-handle::after {
@@ -11676,7 +11676,7 @@ ul.typeahead-list > li > a {
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
     </style>
 <style type="text/css">
-    
+
 /* Temporary definitions which will become obsolete with Notebook release 5.0 */
 .ansi-black-fg { color: #3E424D; }
 .ansi-black-bg { background-color: #3E424D; }
@@ -11730,14 +11730,14 @@ div#notebook {
   div.cell {
     display: block;
     page-break-inside: avoid;
-  } 
-  div.output_wrapper { 
-    display: block;
-    page-break-inside: avoid; 
   }
-  div.output { 
+  div.output_wrapper {
     display: block;
-    page-break-inside: avoid; 
+    page-break-inside: avoid;
+  }
+  div.output {
+    display: block;
+    page-break-inside: avoid;
   }
 }
 </style>
@@ -11821,7 +11821,7 @@ div#notebook {
 
 <span class="c1">#theta = np.random.normal(size=p)</span>
 <span class="c1">#theta[np.random.choice(np.arange(p), int(p*sparsity), replace=False)] = 0</span>
-<span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">p</span><span class="o">-</span><span class="mi">20</span><span class="p">)])</span> 
+<span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">p</span><span class="o">-</span><span class="mi">20</span><span class="p">)])</span>
 <span class="n">X_obs</span><span class="p">,</span> <span class="n">y_obs</span><span class="p">,</span> <span class="n">X_sim</span><span class="p">,</span> <span class="n">y_sim</span><span class="p">,</span> <span class="n">sigma_delta</span> <span class="o">=</span> <span class="n">generate_simobs</span><span class="p">(</span><span class="n">nobs</span><span class="p">,</span> <span class="n">nsim</span><span class="p">,</span> <span class="o">.</span><span class="mi">9</span><span class="p">,</span> <span class="n">theta</span><span class="p">,</span> <span class="n">sigma</span><span class="p">)</span>
 <span class="n">sigma_tilde</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">block_diag</span><span class="p">(</span><span class="n">sigma</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">nobs</span><span class="p">),</span> <span class="n">X_sim</span><span class="nd">@sigma_delta@X_sim</span><span class="o">.</span><span class="n">T</span> <span class="o">+</span> <span class="n">sigma</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">nsim</span><span class="p">))</span>
 <span class="n">sigma_tilde_inv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">cholesky</span><span class="p">(</span><span class="n">sigma_tilde</span><span class="p">))</span>
@@ -11860,11 +11860,11 @@ div#notebook {
     <span class="n">inv_ct</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">chol</span><span class="p">)</span>
     <span class="n">inv_ct_diag</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">n</span><span class="p">),</span><span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">),</span><span class="n">inv_ct</span><span class="p">)</span>
     <span class="n">theta_new</span> <span class="o">=</span> <span class="n">mod</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">inv_ct_diag</span><span class="nd">@X</span><span class="p">,</span> <span class="n">inv_ct_diag</span><span class="nd">@y</span><span class="p">)</span><span class="o">.</span><span class="n">coef_</span>
-    
+
     <span class="c1"># structured version</span>
     <span class="n">sigma_hat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="n">y_obs</span><span class="o">-</span><span class="n">X_obs</span><span class="nd">@theta_hat</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
     <span class="n">xdx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">outer</span><span class="p">((</span><span class="n">y_sim</span> <span class="o">-</span> <span class="n">X_sim</span><span class="nd">@theta_hat</span><span class="p">),(</span><span class="n">y_sim</span> <span class="o">-</span> <span class="n">X_sim</span><span class="nd">@theta_hat</span><span class="p">))</span> <span class="o">-</span> <span class="n">sigma_hat</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">nsim</span><span class="p">)</span>
-    
+
     <span class="n">theta_errors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">theta</span><span class="o">-</span><span class="n">theta_new</span><span class="p">))</span>
     <span class="n">sigma_delta_errors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">X_sim</span><span class="nd">@sigma_delta@X_sim</span><span class="o">.</span><span class="n">T</span> <span class="o">-</span> <span class="n">xdx</span><span class="p">))</span>
     <span class="n">sigma_tilde_inv_errors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">sigma_tilde_inv</span> <span class="o">-</span> <span class="n">inv_ct</span><span class="p">))</span>
@@ -12024,8 +12024,8 @@ div#notebook {
     <span class="k">else</span><span class="p">:</span>
         <span class="n">theta_new</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
     <span class="n">rig</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">Ridge</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="n">mod</span><span class="o">.</span><span class="n">alpha_</span><span class="p">)</span>
-    
-    <span class="n">cov_hat</span> <span class="o">=</span> <span class="n">cov</span> 
+
+    <span class="n">cov_hat</span> <span class="o">=</span> <span class="n">cov</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">niter</span><span class="p">):</span>
         <span class="n">chol</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">cholesky</span><span class="p">(</span><span class="n">cov_hat</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="n">m</span><span class="p">)</span><span class="o">*</span><span class="mf">1e-6</span><span class="p">)</span> <span class="c1">#perturb so pd</span>
         <span class="n">inv_ct</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">chol</span><span class="p">)</span>
@@ -12052,7 +12052,7 @@ div#notebook {
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">]:</span>
     <span class="n">nsim</span> <span class="o">=</span> <span class="n">k</span><span class="o">*</span><span class="n">nobs</span>
-    <span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">p</span><span class="o">-</span><span class="mi">20</span><span class="p">)])</span> 
+    <span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">p</span><span class="o">-</span><span class="mi">20</span><span class="p">)])</span>
     <span class="n">X_obs</span><span class="p">,</span> <span class="n">y_obs</span><span class="p">,</span> <span class="n">X_sim</span><span class="p">,</span> <span class="n">y_sim</span><span class="p">,</span> <span class="n">cov</span> <span class="o">=</span> <span class="n">generate_simobs</span><span class="p">(</span><span class="n">nobs</span><span class="p">,</span> <span class="n">nsim</span><span class="p">,</span> <span class="o">.</span><span class="mi">9</span><span class="p">,</span> <span class="n">theta</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="n">sigma</span><span class="p">)</span>
     <span class="n">Sigma</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">block_diag</span><span class="p">(</span><span class="n">sigma</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">nobs</span><span class="p">),</span> <span class="n">X_sim</span><span class="nd">@cov@X_sim</span><span class="o">.</span><span class="n">T</span><span class="o">+</span><span class="n">sigma</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">nsim</span><span class="p">))</span>
     <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">stack_data</span><span class="p">(</span><span class="n">X_obs</span><span class="p">,</span> <span class="n">X_sim</span><span class="p">,</span> <span class="n">y_obs</span><span class="p">,</span> <span class="n">y_sim</span><span class="p">)</span>
@@ -12143,7 +12143,7 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[117]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
+<div class=" highlight hl-ipython3"><pre><span></span>
 </pre></div>
 
 </div>
@@ -12202,7 +12202,7 @@ div#notebook {
     <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">]:</span>
         <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">100</span><span class="p">]:</span>
             <span class="n">nsim</span> <span class="o">=</span> <span class="n">k</span><span class="o">*</span><span class="n">nobs</span>
-            <span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">p</span><span class="o">-</span><span class="mi">20</span><span class="p">)])</span> 
+            <span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">p</span><span class="o">-</span><span class="mi">20</span><span class="p">)])</span>
             <span class="n">X_obs</span><span class="p">,</span> <span class="n">y_obs</span><span class="p">,</span> <span class="n">X_sim</span><span class="p">,</span> <span class="n">y_sim</span><span class="p">,</span> <span class="n">cov</span> <span class="o">=</span> <span class="n">generate_simobs</span><span class="p">(</span><span class="n">nobs</span><span class="p">,</span> <span class="n">nsim</span><span class="p">,</span> <span class="o">.</span><span class="mi">9</span><span class="p">,</span> <span class="n">theta</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="n">sigma</span><span class="p">)</span>
             <span class="n">Sigma</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">block_diag</span><span class="p">(</span><span class="n">sigma</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">nobs</span><span class="p">),</span> <span class="n">X_sim</span><span class="nd">@cov@X_sim</span><span class="o">.</span><span class="n">T</span><span class="o">+</span><span class="n">sigma</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">nsim</span><span class="p">))</span>
             <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">stack_data</span><span class="p">(</span><span class="n">X_obs</span><span class="p">,</span> <span class="n">X_sim</span><span class="p">,</span> <span class="n">y_obs</span><span class="p">,</span> <span class="n">y_sim</span><span class="p">)</span>
@@ -12211,18 +12211,18 @@ div#notebook {
             <span class="n">rig</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">RidgeCV</span><span class="p">()</span>
             <span class="n">theta_hat</span> <span class="o">=</span> <span class="n">rig</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_obs</span><span class="p">,</span> <span class="n">y_obs</span><span class="p">)</span><span class="o">.</span><span class="n">coef_</span>
             <span class="n">errors</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">k</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="s1">&#39;Obs only ridge&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">theta</span><span class="o">-</span><span class="n">theta_hat</span><span class="p">)])</span>
-            
+
             <span class="c1"># obs + sim (not altmin)</span>
             <span class="n">rig</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">RidgeCV</span><span class="p">()</span>
             <span class="n">theta_hat</span> <span class="o">=</span> <span class="n">rig</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">coef_</span>
             <span class="n">errors</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">k</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="s1">&#39;Obs + sim ridge&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">theta</span><span class="o">-</span><span class="n">theta_hat</span><span class="p">)])</span>
-            
+
             <span class="c1"># MAP estimator </span>
             <span class="n">chol</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">cholesky</span><span class="p">(</span><span class="n">cov</span><span class="p">)</span>
             <span class="n">inv_ct</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">chol</span><span class="p">)</span>
             <span class="n">theta_hat</span> <span class="o">=</span> <span class="n">map_estimator</span><span class="p">(</span><span class="n">X_obs</span><span class="p">,</span> <span class="n">y_obs</span><span class="p">,</span> <span class="n">X_sim</span><span class="p">,</span> <span class="n">y_sim</span><span class="p">,</span> <span class="n">cov</span><span class="p">,</span> <span class="o">.</span><span class="mi">1</span><span class="p">)</span>
             <span class="n">errors</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">k</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="s1">&#39;MAP estimator&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">theta</span><span class="o">-</span><span class="n">theta_hat</span><span class="p">)])</span>
-            
+
             <span class="c1"># sims + obs (init with obs)</span>
             <span class="n">rig</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">RidgeCV</span><span class="p">()</span>
             <span class="n">rig</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_obs</span><span class="p">,</span> <span class="n">y_obs</span><span class="p">)</span>
@@ -12230,11 +12230,11 @@ div#notebook {
             <span class="n">theta_hat</span><span class="p">,</span> <span class="n">cov_hat</span> <span class="o">=</span> <span class="n">altmin</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">nsim</span><span class="o">+</span><span class="n">nobs</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">init</span><span class="o">=</span><span class="n">theta_init</span><span class="p">)</span>
             <span class="n">errors</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">k</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="s1">&#39;Obs and sim (init w/ obs)&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">theta</span><span class="o">-</span><span class="n">theta_hat</span><span class="p">)])</span>
             <span class="n">cov_errors</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">k</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="s1">&#39;Obs and sim (init w/ obs)&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">Sigma</span><span class="o">-</span><span class="n">cov_hat</span><span class="p">)</span><span class="o">/</span><span class="n">k</span><span class="p">])</span>
-            
+
             <span class="n">theta_hat</span><span class="p">,</span> <span class="n">cov_hat</span> <span class="o">=</span> <span class="n">altmin_switch</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">nsim</span><span class="o">+</span><span class="n">nobs</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">Sigma</span><span class="p">)</span>
             <span class="n">errors</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">k</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="s1">&#39;Obs and sim (init w/ sigma_delta)&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">theta</span><span class="o">-</span><span class="n">theta_hat</span><span class="p">)])</span>
-                        
-            
+
+
 </pre></div>
 
 </div>
@@ -12383,7 +12383,7 @@ div#notebook {
   </div>
 </body>
 
- 
+
 
 
 </html>
