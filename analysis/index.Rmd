@@ -11,19 +11,7 @@ editor_options:
 Research question: when and how does leveraging dynamical model simulations improve climate forecasting on observational data? 
 
 ## Currently working on:
-+ Exploiting structure of $\tilde{\Sigma}$ in the AltMin procedure ([here](exploit_cov.html) for details)
-
-
-
-## Previous work
-+ Last year, statistics PhD student Andrew Goldstein analyzed the conditions under which including the simulation data yields lower mean-square predictive
-error than only using observation data in the following setting:
-
-    Observation data $Z_t = \begin{bmatrix}Y_t\\X_t\end{bmatrix} \overset{\text{iid}}{\sim} P_{\theta^*}, t = 1, \dots, n_o$ 
-
-    Simulation data $\tilde{Z}_t = \begin{bmatrix}\tilde{Y}_t\\\tilde{X}_t\end{bmatrix} \overset{\text{iid}}{\sim} P_{\tilde{\theta}}, t=1,\dots,n_s$ 
-
-His analysis of this scenario can be found [here](Combining_Datasets.pdf).
++ Exploiting structure of $\tilde{\Sigma}$ in the AltMin procedure ([here](exploit_cov.html) for details, [here](https://github.com/abbystvns/transfer_learning_ssf/blob/master/code/sims.py) for some Python utility functions)
 
 ## Gaussian setting
 
@@ -69,5 +57,15 @@ X_{sim}
 + Slides comparing this setting to the [AltMin](https://papers.nips.cc/paper/7896-an-improved-analysis-of-alternating-minimization-for-structured-multi-response-regression.pdf) paper found [here](altmin_compare.pdf)
 
 + Joon's work digging deeper into the AltMin paper (and also exploring some additional ideas) found [here](https://joonsukkang.github.io/tlcf/index.html)
+
+## Previous work
++ Last year, statistics PhD student Andrew Goldstein analyzed the conditions under which including the simulation data yields lower mean-square predictive
+error than only using observation data in the following setting:
+
+    Observation data $Z_t = \begin{bmatrix}Y_t\\X_t\end{bmatrix} \overset{\text{iid}}{\sim} P_{\theta^*}, t = 1, \dots, n_o$ 
+
+    Simulation data $\tilde{Z}_t = \begin{bmatrix}\tilde{Y}_t\\\tilde{X}_t\end{bmatrix} \overset{\text{iid}}{\sim} P_{\tilde{\theta}}, t=1,\dots,n_s$ 
+
+His analysis of this scenario can be found [here](Combining_Datasets.pdf).
 
 
