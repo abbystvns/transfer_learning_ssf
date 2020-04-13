@@ -10,6 +10,11 @@ editor_options:
 
 Research question: when and how does leveraging dynamical model simulations improve climate forecasting on observational data? 
 
+## Currently working on:
++ Exploiting structure of $\tilde{\Sigma}$ in the AltMin procedure ([here](exploit_cov.html) for details)
+
+
+
 ## Previous work
 + Last year, statistics PhD student Andrew Goldstein analyzed the conditions under which including the simulation data yields lower mean-square predictive
 error than only using observation data in the following setting:
@@ -61,4 +66,8 @@ X_{sim}
 
 + Slides analyzing the risk of the Ridge estimators for each of these models are found [here](ridge_risk.pdf)
 
-+ Slides comparing this setting to the AltMin paper found [here](altmin_compare.pdf)
++ Slides comparing this setting to the [AltMin](https://papers.nips.cc/paper/7896-an-improved-analysis-of-alternating-minimization-for-structured-multi-response-regression.pdf) paper found [here](altmin_compare.pdf)
+
++ Joon's work digging deeper into the AltMin paper (and also exploring some additional ideas) found [here](https://joonsukkang.github.io/tlcf/index.html)
+
+
