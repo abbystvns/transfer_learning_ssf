@@ -52,7 +52,7 @@ X_{sim}
 \tilde{\Sigma}^{-1/2}X_{sim}
 \end{bmatrix} \beta + \epsilon_3, \quad \quad \epsilon_3 \sim N(0, I_{n_o+n_s})$$
 
-+ Slides analyzing the risk of the Ridge estimators for each of these models are found [here](ridge_risk.pdf)
++ Analysis of ridge risk estimators found [here](ridge-risk.html)
 
 + Slides comparing this setting to the [AltMin](https://papers.nips.cc/paper/7896-an-improved-analysis-of-alternating-minimization-for-structured-multi-response-regression.pdf) paper found [here](altmin_compare.pdf)
 

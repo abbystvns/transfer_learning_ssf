@@ -1,0 +1,46 @@
+---
+title: "ridge-risk"
+author: "Abby Stevens"
+date: "2020-04-27"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+## Risk of ridge estimators of 3 models 
+
+Slides analyzing the risk of the Ridge estimators for each of these models are found [here](ridge_risk.pdf)
+
+Assume: 
+
+$X_{obs}^TX_{obs} = \text{diag}(\lambda_1, \dots, \lambda_p)$ 
+
+$X_{sim}^T X_{sim} = \text{diag}(\delta_1, \dots, \delta_p)$
+
+$\Sigma_{\Delta} = \text{diag}(\alpha_1, \dots, \alpha_p)$
+
+\begin{align*}
+\text{risk}(\hat{\beta_1}) &= \frac{\sigma^2}{n}\sum_{j=1}^p \frac{\lambda_j}{(\lambda_j + \lambda)^2} + \sum_{j=1}^p \beta_j^2 \left(\frac{\lambda}{\lambda_j + \lambda}\right)^2\\
+\text{risk}(\hat{\beta_2}) &= \frac{\sigma^2}{n+m}\sum_{j=1}^p \frac{\lambda_j + \delta_j + \frac{1}{\sigma^2}\delta_j^2\alpha_j}{(\lambda_j + \delta_j + \lambda)^2} + \sum_{j=1}^p \beta_j^2 \left(\frac{\lambda}{\lambda_j + \delta_j + \lambda}\right)^2\\
+\text{risk}(\hat{\beta_3}) &= \frac{\sigma^2}{n+m}\sum_{j=1}^p  \frac{\lambda_j +\xi_j}{(\lambda_j + \xi_j + \lambda)^2} + \sum_{j=1}^p \beta_j^2 \left(\frac{\lambda}{\lambda_j + \xi_j + \lambda}\right)^2
+\end{align*}
+
+$$\xi_j = \delta_j\left(1 - \frac{\delta_j\alpha_j}{\sigma^2 + \delta_j \alpha_j}\right)$$
+
+
+### EXTREMELEY restrictive conditions:
+
+$X_{obs}^TX_{obs} = X_{sim}^TX_{sim}=I_p$
+
+$\Sigma_{\Delta} = \Delta I_p$
+
+$\sigma^2 = 1$
+
+
+Then 
+
+risk($\hat{\beta_1}$) = $p\left( \frac{1}{1+\lambda} \right) ^2 +\left( \frac{\lambda}{1+\lambda} \right)^2 \| \beta\|_2^2$
+
+risk($\hat{\beta_2}$) = $p\left(\frac{2 + \Delta}{2+\lambda}\right)^2 +\left(\frac{\lambda}{2+\lambda}\right)^2 \| \beta\|_2^2$
+
+When $\lambda = 1$: risk($\hat{\beta}_2$) < risk($\hat{\beta}_1$) $\iff$ $\Delta < \frac{5 \| \beta \|^2 + p}{4p}$
